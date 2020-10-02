@@ -86,7 +86,53 @@ namespace ConsoleApp1
                 }               
 
             }
-            Console.WriteLine(WrittenNumber);     
+
+            if (number > 999 && number < 10000)
+            {
+                int firstnumber, secondnumber, thirdnumber, fourthnumber;
+                firstnumber = number / 1000;
+                secondnumber = ((number / 10) / 10) % 10;
+                thirdnumber = (number / 10) % 10;
+                fourthnumber = number % 10;
+
+                if (thirdnumber == 0 && fourthnumber == 0)
+                {
+                    WrittenNumber += SingleDigitUniqueNumbers[firstnumber] + " thousand ";
+                    WrittenNumber += SingleDigitUniqueNumbers[secondnumber];
+                    WrittenNumber += " " + HundredAndThousands[0];
+                }
+
+                else if (fourthnumber == 0)
+                {
+                    WrittenNumber += SingleDigitUniqueNumbers[firstnumber] + " thousand ";
+                    WrittenNumber += SingleDigitUniqueNumbers[secondnumber];
+                    WrittenNumber += " hundred and " + ZeroUniqueNumbers[thirdnumber - 1];
+                }
+
+                else if (thirdnumber == 0)
+                {
+                    WrittenNumber += SingleDigitUniqueNumbers[firstnumber] + " thousand ";
+                    WrittenNumber += SingleDigitUniqueNumbers[secondnumber];
+                    WrittenNumber += " hundred and " + SingleDigitUniqueNumbers[fourthnumber];
+                }
+
+                else if (thirdnumber == 1)
+                {
+                    WrittenNumber += SingleDigitUniqueNumbers[firstnumber] + " thousand ";
+                    WrittenNumber += SingleDigitUniqueNumbers[secondnumber];
+                    WrittenNumber += " hundred and " + TenToNineteen[fourthnumber];
+                }
+
+                else
+                {
+                    WrittenNumber += SingleDigitUniqueNumbers[firstnumber] + " thousand ";
+                    WrittenNumber += SingleDigitUniqueNumbers[secondnumber];
+                    WrittenNumber += " hundred and " + ZeroUniqueNumbers[thirdnumber - 1];
+                    WrittenNumber += " " + SingleDigitUniqueNumbers[fourthnumber];
+                }
+            }
+
+                Console.WriteLine(WrittenNumber);     
            
                         
         }
