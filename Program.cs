@@ -1,4 +1,4 @@
-sing System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,6 +33,9 @@ namespace ConsoleApp1
             x.ConvertNumber(9999);
             x.ConvertNumber(1234);
             x.ConvertNumber(1516);
+            x.ConvertNumber(4972);
+            x.ConvertNumber(1111);
+
 
 
             Console.Read();
